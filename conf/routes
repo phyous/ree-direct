@@ -5,6 +5,9 @@
 # Home page
 GET     /                                       Application.index
 
+# Redirect CRUD routes
+GET     /create/{alias}                         Redirect.create
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
