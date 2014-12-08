@@ -1,0 +1,8 @@
+Redirect(google):
+    url: http://www.google.com
+    alias: google
+
+Redirect(apple):
+    url: http://www.apple.com
+    alias: apple
+    password: apple

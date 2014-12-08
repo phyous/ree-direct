@@ -23,4 +23,9 @@ public class Redirect extends Model {
     public static Redirect findByAlias(String alias) {
         return find("byAlias", alias).first();
     }
+
+    public static Redirect create(String url, String alias, String password) {
+        Redirect newComment = new Redirect(url, alias, password).save();
+        return newComment;
+    }
 }
