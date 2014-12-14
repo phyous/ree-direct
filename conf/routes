@@ -11,9 +11,13 @@ GET     /favicon.ico                            404
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-# Redirect CRUD routes
-GET     /{alias}                                RedirectController.get
-GET     /create/{alias}                         RedirectController.createRedirect
+# Redirect app routes
+GET     /{alias}                                Application.lookupRedirect
+GET     /create/{alias}                         Application.createRedirect
+GET     /create/{alias}/confirm                 Application.confirmRedirect
+
+# REST API endpoints
+POST    /redirect                               api.RedirectController.create
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
