@@ -1,6 +1,7 @@
 function setupPostAction() {
     var SUBMIT_BUTTON_ID = "#redirectSubmit";
     var SUBMIT_FORM_ID = "#redirectForm"
+    var ERROR_ALERT_ID = "#apiErrorAlert"
     var SUBMIT_URL = "/redirect";
 
     $(SUBMIT_BUTTON_ID).click(function() {
@@ -13,12 +14,8 @@ function setupPostAction() {
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
-                // TODO: Add error handling here
-                alert(data); // show response
-                if(data != "false")
-                {
-                    console.log(data);
-                }
+                $(ERROR_ALERT_ID).empty().append("<strong>ERROR:</strong> " + jqXHR.responseJSON.description)
+                $(ERROR_ALERT_ID).hide().removeClass("hide").slideDown(400);
             },
             });
 

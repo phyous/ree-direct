@@ -17,7 +17,7 @@ public class ApiError {
 
     public static ApiError parameterValidationError(String paramName) {
         return new ApiError(ApiError.INVALID_PARAMETER,
-                String.format("Invalid value for parameter %s", paramName),
+                String.format("Invalid value for parameter \"%s\"", paramName),
                 Http.StatusCode.BAD_REQUEST);
     }
 }

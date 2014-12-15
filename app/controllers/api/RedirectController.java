@@ -28,7 +28,7 @@ public class RedirectController extends ApiController{
         if (Redirect.findByAlias(alias) != null) {
             renderJSON(new ApiError(
                     ApiError.INVALID_PARAMETER,
-                    String.format("Redirect for \"%s\" already exists", alias),
+                    String.format("Redirect for \"%s\" already exists. Try another alias.", alias),
                     Http.StatusCode.BAD_REQUEST
             ), Http.StatusCode.BAD_REQUEST);
         }
