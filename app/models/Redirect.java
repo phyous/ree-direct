@@ -1,5 +1,7 @@
 package models;
 
+import com.google.gson.annotations.Expose;
+import org.hibernate.util.StringHelper;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
@@ -8,9 +10,15 @@ import java.util.Date;
 @Entity
 public class Redirect extends Model {
 
+    @Expose
     public String url;
+
+    @Expose
     public String alias;
+
     public String password;
+
+    @Expose
     public Date createAt;
 
     public Redirect(String url, String alias, String password) {
@@ -18,6 +26,10 @@ public class Redirect extends Model {
         this.alias = alias;
         this.password = password;
         this.createAt = new Date();
+    }
+
+    public boolean hasPassword() {
+        return StringHelper.isNotEmpty(password);
     }
 
     public static Redirect findByAlias(String alias) {

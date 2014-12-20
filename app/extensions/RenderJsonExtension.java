@@ -3,12 +3,17 @@ package extensions;
 import play.mvc.Http;
 import play.mvc.results.RenderJson;
 
-public class RenderJsonWithStatus extends RenderJson {
+public class RenderJsonExtension extends RenderJson {
 
     private int status;
 
-    public RenderJsonWithStatus(Object o, int status) {
+    public RenderJsonExtension(Object o, int status) {
         super(o);
+        this.status = status;
+    }
+
+    public RenderJsonExtension(String s, int status) {
+        super(s);
         this.status = status;
     }
 

@@ -1,5 +1,15 @@
 #{extends 'main.html' /}
 #{set title:'Create redirect' /}
 
-<h2>Redirect "${alias}" created</h2>
-<h3><a href="http://ree.direct/${alias}">ree.direct/${alias}</a> now links to <a href="${url}">${url}</a></h3>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h1 class="panel-title">Redirect "${alias}" created</h1>
+        </div>
+        <div class="panel-body">
+            <h4>
+                <a href="http://ree.direct/${alias}">ree.direct/${alias}</a> now links to <a href="${url}">${url}</a>
+            </h4>
+        </div>
+    </div>
+</div>

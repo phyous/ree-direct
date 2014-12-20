@@ -20,7 +20,9 @@ public class Application extends Controller {
     }
 
     public static void lookupRedirect() {
-        String alias = request.routeArgs.get("alias");
+        final String alias = request.routeArgs.get("alias");
+        final String password = request.params.get("password");
+
         if (alias == null) {
             error("Null alias detected.");
         }
@@ -29,9 +31,12 @@ public class Application extends Controller {
 
         if (redirect == null) {
             notFound(String.format("Redirect \"%s\" doesn't exist", alias));
+        }
+
+        if(redirect.hasPassword() && !redirect.password.equals(password)) {
+            render("Redirect/password.html", alias);
         } else {
             redirect(redirect.url, false);
         }
     }
-
 }

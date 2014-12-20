@@ -22,3 +22,27 @@ function setupPostAction() {
         return false;
     });
 }
+
+function setupPasswordField() {
+    var CHECKBOX_ID = "#passwordCheckbox"
+    var PASSWORD_FIELD_ID = "#passwordField"
+
+    $(CHECKBOX_ID).change(
+        function(){
+            if ($(this).is(':checked')) {
+                $(PASSWORD_FIELD_ID).hide().removeClass("hide").slideDown(400);
+            } else {
+                $(PASSWORD_FIELD_ID).addClass("hide").hide();
+            }
+        });
+}
+
+function setupInitialFocus() {
+    var FOCUS_FIELD_ID = "#url"
+
+    $(FOCUS_FIELD_ID).focus();
+}
+
+setupPostAction();
+setupPasswordField();
+setupInitialFocus();
