@@ -1,7 +1,7 @@
 package models;
 
 import com.google.gson.annotations.Expose;
-import org.hibernate.util.StringHelper;
+import org.hibernate.annotations.common.util.StringHelper;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
