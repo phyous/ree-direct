@@ -1,6 +1,5 @@
 function setupInitialFocus() {
     var FOCUS_FIELD_ID = "#redirectPassword"
-
     $(FOCUS_FIELD_ID).focus();
 }
 
@@ -22,7 +21,11 @@ function setupPostAction() {
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
-                $(ERROR_ALERT_ID).empty().append("<strong>ERROR:</strong> " + jqXHR.responseJSON.description)
+                var errorMsg = "Unexpected error";
+                if(jqXHR.responseJSON != null && jqXHR.responseJSON.description != null ) {
+                    errorMsg = jqXHR.responseJSON.description;
+                }
+                $(ERROR_ALERT_ID).empty().append("<strong>ERROR:</strong> " + errorMsg)
                 $(ERROR_ALERT_ID).hide().removeClass("hide").slideDown(400);
                 setupInitialFocus();
             },
