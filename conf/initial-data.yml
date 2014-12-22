@@ -1,6 +1,6 @@
-Redirect(google):
-    url: http://www.google.com
-    alias: google
+Redirect(gangnam):
+    url: https://www.youtube.com/watch?v=9bZkp7q19f0
+    alias: gangnam
 
 Redirect(apple):
     url: http://www.apple.com

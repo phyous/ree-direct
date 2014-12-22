@@ -42,7 +42,7 @@ function setupPasswordField() {
 }
 
 function setupInitialFocus() {
-    var FOCUS_FIELD_ID = "#url"
+    var FOCUS_FIELD_ID = "#alias"
     $(FOCUS_FIELD_ID).focus();
 }
 
